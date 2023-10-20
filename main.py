@@ -7,8 +7,8 @@ from bot_logic import gen_pass
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='$', intents=intents)
-img_alm = ['mem1.jpg', 'mem2.jpg', "mem3.jpg", "men4,jpg"]
+bot = commands.Bot(command_prefix='/', intents=intents)
+img_alm = ['mem1.jpg', 'mem2.jpg', "mem3.jpg", "mem4.jpg", "mem5.jpg"]
 img_alma = ["memp1.jpg", "memp2.jpg", "memp3.jpg"]
 
 @bot.event
@@ -70,6 +70,7 @@ async def memrandom(ctx):
     with open(f'imagen/{img_random}', 'rb') as f:
             picture = discord.File(f)
             await ctx.send(file=picture)
+            await ctx.send(":)")
 def get_duck_image_url():    
     url = 'https://random-d.uk/api/random'
     res = requests.get(url)
@@ -87,4 +88,28 @@ async def animales(ctx):
     with open(f'imagen/{img_randoma}', 'rb') as f:
             picture = discord.File(f)
             await ctx.send(file=picture)
-bot.run("TOKEN")
+ideaslist = ['Usar bolsas de papel','Gastar menos agua y luz', 'Reciclar', 'Usar transporte publico', 'Usar bombillas de bajo consumo', 'No quemar basura', 'Ayudar a limpiar calles', 'No arrojar basura al suelo, mejor en el cubo de la basura']
+
+@bot.command()
+async def idea(ctx):
+    ideasrandom = random.choice(ideaslist)
+    await ctx.send(ideasrandom)
+@bot.command()
+async def tip_reciclaje(ctx):
+    tips = [
+        "Recuerda separar tus residuos en orgánicos e inorgánicos para facilitar su reciclaje.",
+        "Evita utilizar plásticos de un solo uso, opta por alternativas reutilizables.",
+        "Antes de desechar, ¡piensa si puedes reutilizar!",
+        "Compostar tus residuos orgánicos es una excelente manera de reciclar y ayudar al medio ambiente.",
+        # ... [Añadir más tips según tu preferencia]
+    ]
+    await ctx.send(random.choice(tips))
+@bot.command()
+async def acciones(ctx):
+    acc = [
+        "Separa la basura. Desde pequeños es bueno que los niños aprendan a separar los residuos para que se puedan reciclar",
+        "Usa productos que puedan reutilizarse",
+        "Apaga las luces"
+    ]
+    await ctx.send(random.choice(acc))
+bot.run("MTE1NTIwMDA0NjQ4MTAyMzAwMQ.GF7IQT.e9D2fUcoT0o90L1vv6trGSRm5Sg4jlf8MIiOUE")
