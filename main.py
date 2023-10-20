@@ -112,4 +112,4 @@ async def acciones(ctx):
         "Apaga las luces"
     ]
     await ctx.send(random.choice(acc))
-bot.run("MTE1NTIwMDA0NjQ4MTAyMzAwMQ.GF7IQT.e9D2fUcoT0o90L1vv6trGSRm5Sg4jlf8MIiOUE")
+bot.run("TOKEN")
